@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="image/dung1.png" id="anhDung" style="width: 50px; height: 50px ;position: absolute;top: 0px;left: 0px">
+<img src="image/diep1.jpg" id="anhDiep" style="width: 50px; height: 50px ;position: absolute;top: 100px;left: 200px">
+<script>
+    let dung = document.getElementById("anhDung");
+    let diep = document.getElementById("anhDiep");
+
+    document.addEventListener("keydown", diChuyen);
+
+    function sangPhai() {
+        dung.style.left = parseInt(dung.style.left) + 10 + "px"
+
+    }
+
+    function sangTrai() {
+        dung.style.left = parseInt(dung.style.left) - 10 + "px"
+
+    }
+
+    function lenTren() {
+        dung.style.top = parseInt(dung.style.top) - 10 + "px"
+    }
+
+    function xuongDuoi() {
+        dung.style.top = parseInt(dung.style.top) + 10 + "px"
+    }
+
+    function diChuyen(e) {
+
+        let xd = parseInt(dung.style.left);
+        let yd = parseInt(dung.style.top);
+        let xdd = parseInt(diep.style.left);
+        let ydd = parseInt(diep.style.top);
+
+        let rongD = xd + parseInt(dung.style.width);
+        let caoD = yd + parseInt(dung.style.height);
+        let rongDd = xdd + parseInt(diep.style.width);
+        let caoDd = ydd + parseInt(diep.style.height);
+
+        let chamNgang = rongD >= xdd && rongDd >= xd;
+
+        let chamDoc = caoD >= ydd && caoDd >= yd;
+
+        console.log(parseInt(dung.style.height))
+        console.log(ydd)
+
+        if (chamNgang && chamDoc) {
+
+            if (rongD == xdd) {
+                sangTrai();
+            }
+            if (caoD == ydd) {
+                lenTren();
+            }
+            if (rongDd == xd) {
+                sangPhai();
+            }
+            if (caoDd == yd) {
+                xuongDuoi();
+            }
+            alert("hell bây bê");
+            alert("anh đã nghĩ ra tên con chúng mình chưa?")
+        } else {
+            switch (e.keyCode) {
+
+                case 39:
+                    sangPhai()
+                    break;
+                case 37:
+                    sangTrai()
+                    break;
+                case 38:
+                    lenTren()
+                    break;
+                case 40:
+                    xuongDuoi()
+            }
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

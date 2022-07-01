@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>tuổi em</table>
+<input id="em" type="text"> <button onclick="check()">check</button> <br>
+<table> tuổi anh</table>
+<input id="anh" type="text"> <br>
+<table>tuổi bố</table>
+<input id="bo" type="text">
+
+<script>
+function check() {
+    let a = +document.getElementById("em").value;
+    let b = a + 3;
+    document.getElementById("anh").value = b;
+    let c = b * 6;
+        document.getElementById("bo").value = c
+}
+</script>
+</body>
+</html>
